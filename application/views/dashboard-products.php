@@ -89,15 +89,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php
                                                 if ($item->qtd_produto == 0) {
                                             ?>
-                                                <span class="badge badge-danger py-2 px-4">Indisponível</span>
+                                                <span class="badge badge-status badge-danger py-2 px-4">Indisponível</span>
                                             <?php
                                                 } elseif ($item->qtd_produto > 0 && $item->qtd_produto <= 5) {
                                             ?>
-                                                <span class="badge badge-warning py-2 px-4">Acabando</span>
+                                                <span class="badge badge-status badge-warning py-2 px-4">Acabando</span>
                                             <?php
                                                 } else { 
                                             ?>
-                                                <span class="badge badge-success py-2 px-4">Disponível</span>
+                                                <span class="badge badge-status badge-success py-2 px-4">Disponível</span>
                                             <?php
                                                 }
                                             ?>

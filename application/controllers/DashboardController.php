@@ -11,6 +11,21 @@ class DashboardController extends CI_Controller {
 	public function index() {
         if($this->session->userdata('id_loja')){
             $data['storeName'] = $this->session->userdata('nome_loja');
+            $data['inStock'] = 0;
+            $data['ending'] = 0;
+            $data['outOfStock'] = 0;
+
+            $products = $this->DashboardModel->selectProducts($this->session->userdata('id_loja'));
+
+            foreach ($products as $item) {
+                if ($item->qtd_produto == 0) {
+                    $data['outOfStock'] = $data['outOfStock'] + 1;
+                } elseif ($item->qtd_produto > 0 && $item->qtd_produto <= 5) {
+                    $data['ending'] = $data['ending'] + 1;
+                } else {
+                    $data['inStock'] = $data['inStock'] + 1;
+                }
+            }
 
             $this->load->view('dashboard', $data);
         } else {
