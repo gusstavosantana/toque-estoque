@@ -49,12 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'logincontroller';
-$route['login'] = 'logincontroller';
-$route['auth'] = 'logincontroller/auth';
-$route['register'] = 'registercontroller';
-$route['add-user'] = 'registercontroller/adduser';
-$route['dashboard'] = 'dashboardcontroller';
-$route['logout'] = 'logoutcontroller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['default_controller'] = 'authcontroller';
+$route['login'] = 'authcontroller';
+$route['session'] = 'authcontroller/auth';
+$route['register'] = 'registercontroller';
+$route['insert-user'] = 'registercontroller/adduser';
+$route['dashboard'] = 'dashboardcontroller';
+$route['dashboard/products'] = 'dashboardcontroller/selectproductsview';
+$route['dashboard/create-product'] = 'dashboardcontroller/insertproductview';
+$route['dashboard/insert-product'] = 'dashboardcontroller/insertproductdatabase';
+$route['dashboard/product/(:num)'] = 'dashboardcontroller/updateproductview/$1';
+$route['dashboard/update-product'] = 'dashboardcontroller/updateproductdatabase';
+$route['dashboard/delete-product/(:num)'] = 'dashboardcontroller/deleteproductdatabase/$1';
+$route['logout'] = 'logoutcontroller';
+

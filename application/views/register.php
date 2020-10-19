@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url('src/styles/signin.css') ?>">
     </head>
     <body class="text-center"> 
-        <form class="form-register" method="POST" action="<?php echo base_url('add-user') ?>">
+        <form class="form-register" method="POST" action="<?php echo base_url('insert-user') ?>">
             <img class="login-logo" src="<?php echo base_url('src/images/logo.png') ?>" alt="Logo">
             <h1 class="h3 mb-3 font-weight-normal">Cadastre sua conta</h1>
             <div class="form-row">

@@ -10,14 +10,6 @@ CREATE TABLE tb_loja (
     PRIMARY KEY (id_loja)
 );
 
-CREATE TABLE tb_categoria (
-	id_categoria INT NOT NULL AUTO_INCREMENT,
-    nome_categoria VARCHAR(30) NOT NULL,
-    id_loja INT NOT NULL,
-    PRIMARY KEY (id_categoria),
-    FOREIGN KEY (id_loja) REFERENCES tb_loja(id_loja)
-);
-
 CREATE TABLE tb_produto (
 	id_produto INT NOT NULL AUTO_INCREMENT,
     nome_produto VARCHAR(30) NOT NULL,
@@ -25,10 +17,8 @@ CREATE TABLE tb_produto (
     preco_produto DECIMAL(8,2) NOT NULL,
     qtd_produto INT NOT NULL,
     id_loja INT NOT NULL,
-    id_categoria INT NOT NULL,
     PRIMARY KEY (id_produto),
-    FOREIGN KEY (id_loja) REFERENCES tb_loja(id_loja),
-    FOREIGN KEY (id_categoria) REFERENCES tb_categoria(id_categoria)
+    FOREIGN KEY (id_loja) REFERENCES tb_loja(id_loja)
 );
 
 CREATE TABLE tb_pedido (

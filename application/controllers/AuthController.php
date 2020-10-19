@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LoginController extends CI_Controller {
+class AuthController extends CI_Controller {
 	public function __construct()  {
 		parent::__construct();
 
-		$this->load->model('LoginModel');
+		$this->load->model('AuthModel');
 	}
 
 	public function index() {
@@ -16,8 +16,8 @@ class LoginController extends CI_Controller {
 		$data['usuario_loja'] = $this->input->post('usuario_loja');
 		$data['senha_loja'] = $this->input->post('senha_loja');
 
-		if ($this->LoginModel->checkIfAccountExists($data['usuario_loja'], $data['senha_loja'])) {
-			$accountData = $this->LoginModel->getAccountData($data['usuario_loja']);
+		if ($this->AuthModel->checkIfAccountExists($data['usuario_loja'], $data['senha_loja'])) {
+			$accountData = $this->AuthModel->getAccountData($data['usuario_loja']);
 
 			foreach ($accountData as $item) {
 				$sessionData['id_loja'] = $item->id_loja;

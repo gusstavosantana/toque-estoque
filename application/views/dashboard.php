@@ -29,19 +29,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="sidebar-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">
+                                <a class="nav-link active" href="<?php echo base_url('dashboard'); ?>">
                                     <span data-feather="home"></span>
                                     Dashboard <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?php echo base_url('dashboard/products'); ?>">
                                     <span data-feather="shopping-cart"></span>
                                     Produtos 
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="<?php echo base_url('dashboard/orders'); ?>">
                                     <span data-feather="file"></span>
                                     Pedidos
                                 </a>
@@ -49,7 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </ul>
                     </div>
                 </nav>
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4"></main>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                    <nav class="mt-4" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                    </nav>
+                </main>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

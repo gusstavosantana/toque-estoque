@@ -89,7 +89,7 @@
                             icon: 'error',
                             title: 'Oops...',
                             text: 'Erro ao cadastrar, tente novamente',
-                        })
+                        });
 
                         _this.enableSubmit('Cadastrar');
                     }
@@ -99,7 +99,7 @@
             });
         },
         disableSubmit() {
-            $('.button-submit').attr('disabled', true).text('Aguarde...')
+            $('.button-submit').attr('disabled', true).text('Aguarde...');
         },
         enableSubmit(text) {
             $('.button-submit').attr('disabled', false).text(text);

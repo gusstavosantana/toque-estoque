@@ -113,15 +113,15 @@ body {
 }
 
 .edit-group {
-	top: 50%;
-	left: 50%;
+	top: calc(50% - 8px);
+	left: calc(50% - 8px);
 	padding: 0;
 	position: absolute;
-	transform: translate(-50%, -50%);
 }
 
 .edit-table {
 	padding: 0;
+	background-color: transparent;
 }
 
 .edit-modal {
