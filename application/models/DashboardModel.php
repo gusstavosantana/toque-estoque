@@ -63,4 +63,16 @@ class DashboardModel extends CI_Model {
     function insertProductOrder($data) {
         $this->db->insert('tb_produto_pedido', $data);
     }
+
+    function updateOrderValue($orderId, $orderValue) {
+        $this->db->set('valor_pedido', $orderValue);
+        $this->db->where('id_pedido', $orderId);
+        $this->db->update('tb_pedido');
+    }
+
+    function updateQtyProduct($productId, $productQty) {
+        $this->db->set('qtd_produto', $productQty);
+        $this->db->where('id_produto', $productId);
+        $this->db->update('tb_produto');
+    }
 }

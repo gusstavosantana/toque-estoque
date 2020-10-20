@@ -35,6 +35,7 @@ INSERT INTO tb_produto (nome_produto, descricao_produto, preco_produto, qtd_prod
 CREATE TABLE tb_pedido (
 	id_pedido INT NOT NULL AUTO_INCREMENT,
     data_pedido DATE NOT NULL,
+    valor_pedido DECIMAL(8,2) NOT NULL,
     id_loja INT NOT NULL,  
     PRIMARY KEY (id_pedido),
     FOREIGN KEY (id_loja) REFERENCES tb_loja(id_loja)

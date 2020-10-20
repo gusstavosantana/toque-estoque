@@ -113,6 +113,7 @@ class DashboardController extends CI_Controller {
     function insertOrderDatabase() {
         $data['id_loja'] = $this->session->userdata('id_loja');
         $data['data_pedido'] = date("Y/m/d");
+        $data['valor_pedido'] = 0;
 
         $this->DashboardModel->insertOrder($data);
     }
@@ -134,6 +135,11 @@ class DashboardController extends CI_Controller {
         $data['id_produto'] = $this->input->get('productId');
         $data['qtd_produto'] = $this->input->get('productQty');
 
+        $newQty = $this->input->get('productOldQty') - $data['qtd_produto'];
+        $newOrderValue = $this->input->get('orderValue') + ($this->input->get('productPrice') * $data['qtd_produto']);
+
+        $this->DashboardModel->updateOrderValue($data['id_pedido'], $newOrderValue);
         $this->DashboardModel->insertProductOrder($data);
+        $this->DashboardModel->updateQtyProduct($data['id_produto'], $newQty);
     }
 }

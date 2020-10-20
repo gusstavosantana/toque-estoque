@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 ?>
                                     <tr>
                                         <th scope="row"><?php echo $item->nome_produto; ?></th>
-                                        <td>R$ <?php echo $item->preco_produto; ?></td>
+                                        <td>R$ <?php echo str_replace('.', ',', $item->preco_produto); ?></td>
                                         <td><?php echo $item->qtd_produto; ?></td>
                                         <td>
                                             <?php

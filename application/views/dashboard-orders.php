@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <tr>
                                         <th scope="row">#<?php echo $item->id_pedido; ?></th>
                                         <td><?php echo (new DateTime($item->data_pedido))->format('d/m/Y'); ?></td>
-                                        <td>R$ 149.99</td>
+                                        <td>R$ <?php echo str_replace('.', ',', $item->valor_pedido); ?></td>
                                         <td class="text-right">
                                             <a href="<?php echo base_url('dashboard/order/' . $item->id_pedido); ?>" class="btn btn-secondary add-product-btn">
                                                 <span data-feather="plus-circle"></span> 

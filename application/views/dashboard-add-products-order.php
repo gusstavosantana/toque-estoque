@@ -84,12 +84,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 ?>
                                     <tr class="product-order">
                                         <th scope="row"><?php echo $item->nome_produto; ?></th>
-                                        <td>R$ <?php echo $item->preco_produto; ?></td>
+                                        <td>R$ <?php echo str_replace('.', ',', $item->preco_produto); ?></td>
                                         <td><input class="input-qtd" onkeydown="return false" type="number" min="1" step="1" value="1" max="<?php echo $item->qtd_produto; ?>"></td>
                                         <td class="text-right">
-                                            <a href="<?php echo base_url('dashboard/insert-product-order?orderId=' . $order[0]['id_pedido'] . '&productId=' . $item->id_produto); ?>" class="btn btn-secondary add-product-btn btn-order">
+                                            <a href="<?php echo base_url('dashboard/insert-product-order?orderId=' . $order[0]['id_pedido'] . '&orderValue=' . $order[0]['valor_pedido'] . '&productId=' . $item->id_produto . '&productOldQty=' . $item->qtd_produto . '&productPrice=' . $item->preco_produto); ?>" class="btn btn-secondary add-product-btn btn-order">
                                                 <span data-feather="plus-circle"></span> 
-                                                Adicionar o pedido 
+                                                Adicionar ao pedido 
                                             </a>
                                         </td>
                                     </tr>
