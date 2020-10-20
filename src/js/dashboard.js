@@ -87,6 +87,57 @@
                 });             
             });
         },
+        addOrder() {
+            $('#add-order').on('click', function(e){
+                e.preventDefault();
+                
+                const url = $(this).attr('href');
+
+                $.post(url, function(){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ok!',
+                        text: 'O pedido foi adicionado',
+                        confirmButtonText: 'Ok'
+                    }).then(function() {
+                        location.reload();
+                    });
+                }).
+                fail(function(){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Erro ao adicionar o pedido, tente novamente',
+                    });
+                });
+            });
+        },
+        addProductOrder() {
+            $('.add-product-btn.btn-order').on('click', function(e){
+                e.preventDefault();
+                
+                const qtd = $(this).parents('.product-order').find('.input-qtd').val();
+                const url = `${$(this).attr('href')}&productQty=${qtd}`;
+
+                $.post(url, function(){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ok!',
+                        text: 'O produto foi contabilizado no pedido',
+                        confirmButtonText: 'Ok'
+                    }).then(function() {
+                        location.reload();
+                    });
+                }).
+                fail(function(){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Erro ao contabilizar o produto no pedido, tente novamente',
+                    });
+                });
+            });
+        },
         disableSubmit() {
             $('.button-submit').attr('disabled', true).text('Aguarde...');
         },
@@ -97,6 +148,8 @@
             this.icons();
             this.handleProduct();
             this.removeProduct();
+            this.addOrder();
+            this.addProductOrder();
         }
     }
 

@@ -35,15 +35,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="<?php echo base_url('dashboard/products'); ?>">
+                                <a class="nav-link" href="<?php echo base_url('dashboard/products'); ?>">
                                     <span data-feather="shopping-cart"></span>
-                                    Produtos <span class="sr-only">(current)</span>
+                                    Produtos 
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('dashboard/orders'); ?>">
+                                <a class="nav-link active" href="<?php echo base_url('dashboard/orders'); ?>">
                                     <span data-feather="file"></span>
-                                    Pedidos
+                                    Pedidos <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                         </ul>
@@ -53,65 +53,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <nav class="mt-4" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Produtos</li>
+                            <li class="breadcrumb-item active" aria-current="page">Pedidos</li>
                         </ol>
                     </nav>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Seus produtos:</h1>
-                        <a href="<?php echo base_url('dashboard/create-product'); ?>" class="btn btn-primary">Cadastrar produto</a>
+                        <h1 class="h2">Seus pedidos:</h1>
+                        <a href="<?php echo base_url('dashboard/insert-order'); ?>" class="btn btn-primary" id="add-order">Adicionar pedido</a>
                     </div>
                     <?php
-                        if (empty($products)) {
+                        if (empty($orders)) {
                     ?>
-                        <p>Nenhum produto cadastrado</p>
+                        <p>Nenhum pedido cadastrado</p>
                     <?php
                         } else {
                     ?>
-                        <table class="table table-striped products">
+                        <table class="table table-striped orders">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Preço</th>
-                                    <th scope="col">Quantidade</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach ($products as $item) {
+                                    foreach ($orders as $item) {
                                 ?>
                                     <tr>
-                                        <th scope="row"><?php echo $item->nome_produto; ?></th>
-                                        <td>R$ <?php echo $item->preco_produto; ?></td>
-                                        <td><?php echo $item->qtd_produto; ?></td>
-                                        <td>
-                                            <?php
-                                                if ($item->qtd_produto == 0) {
-                                            ?>
-                                                <span class="badge badge-status badge-danger py-2 px-4">Indisponível</span>
-                                            <?php
-                                                } elseif ($item->qtd_produto > 0 && $item->qtd_produto <= 5) {
-                                            ?>
-                                                <span class="badge badge-status badge-warning py-2 px-4">Acabando</span>
-                                            <?php
-                                                } else { 
-                                            ?>
-                                                <span class="badge badge-status badge-success py-2 px-4">Disponível</span>
-                                            <?php
-                                                }
-                                            ?>
-                                        </td>
-                                        <td class="td-edit">
-                                            <div class="btn-group edit-group" role="group">
-                                                <button id="btnGroupDrop1" type="button" class="edit-table" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <span data-feather="more-vertical"></span>
-                                                </button>
-                                                <div class="dropdown-menu edit-modal p-0" aria-labelledby="btnGroupDrop1">
-                                                    <a class="dropdown-item" href="<?php echo base_url('dashboard/product/' . $item->id_produto); ?>">Editar</a>
-                                                    <a class="dropdown-item bg-danger text-white" id="remove-product" href="<?php echo base_url('dashboard/delete-product/' . $item->id_produto); ?>">Excluir</a>
-                                                </div>
-                                            </div>
+                                        <th scope="row">#<?php echo $item->id_pedido; ?></th>
+                                        <td><?php echo (new DateTime($item->data_pedido))->format('d/m/Y'); ?></td>
+                                        <td>R$ 149.99</td>
+                                        <td class="text-right">
+                                            <a href="<?php echo base_url('dashboard/order/' . $item->id_pedido); ?>" class="btn btn-secondary add-product-btn">
+                                                <span data-feather="plus-circle"></span> 
+                                                Adicionar produtos
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php
@@ -120,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </tbody>
                         </table>
                     <?php
-                        }   
+                        }
                     ?>
                 </main>
             </div>

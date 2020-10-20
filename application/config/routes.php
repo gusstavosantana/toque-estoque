@@ -63,5 +63,9 @@ $route['dashboard/insert-product'] = 'dashboardcontroller/insertproductdatabase'
 $route['dashboard/product/(:num)'] = 'dashboardcontroller/updateproductview/$1';
 $route['dashboard/update-product'] = 'dashboardcontroller/updateproductdatabase';
 $route['dashboard/delete-product/(:num)'] = 'dashboardcontroller/deleteproductdatabase/$1';
+$route['dashboard/orders'] = 'dashboardcontroller/ordersview';
+$route['dashboard/insert-order'] = 'dashboardcontroller/insertorderdatabase';
+$route['dashboard/order/(:num)'] = 'dashboardcontroller/orderview/$1';
+$route['dashboard/insert-product-order'] = 'dashboardcontroller/insertproductorderdatabase';
 $route['logout'] = 'logoutcontroller';
 

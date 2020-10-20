@@ -158,3 +158,39 @@ body {
 	width: 110px;
 	text-align: center;
 }
+
+table.orders {
+	table-layout: fixed ;
+  	width: 100% ;
+}
+
+table.orders td {
+	width: 25%;
+}
+
+.add-product-btn {
+	font-size: 11px;
+}
+
+.add-product-btn .feather {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.input-qtd {
+	width: 60px;
+	text-align: center;
+	padding-left: 15px;
+}
+
+table.order {
+	width: 100% ;
+	table-layout: fixed ;
+}
+
+table.order td {
+	width: 25%;
+}

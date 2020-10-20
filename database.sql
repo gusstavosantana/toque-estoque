@@ -41,8 +41,11 @@ CREATE TABLE tb_pedido (
 );
 
 CREATE TABLE tb_produto_pedido (
+    id_produto_pedido INT NOT NULL AUTO_INCREMENT,
     id_produto INT NOT NULL,
+    qtd_produto INT NOT NULL,
     id_pedido INT NOT NULL,
+    PRIMARY KEY (id_produto_pedido),
     FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto),
     FOREIGN KEY (id_pedido) REFERENCES tb_pedido(id_pedido)
 );

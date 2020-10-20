@@ -11,8 +11,9 @@ class DashboardController extends CI_Controller {
 	public function index() {
         if($this->session->userdata('id_loja')){
             $data['storeName'] = $this->session->userdata('nome_loja');
-            $data['inStock'] = 0;
+            
             $data['ending'] = 0;
+            $data['inStock'] = 0;
             $data['outOfStock'] = 0;
 
             $products = $this->DashboardModel->selectProducts($this->session->userdata('id_loja'));
@@ -96,5 +97,43 @@ class DashboardController extends CI_Controller {
 
     function deleteProductDatabase() {
         $this->DashboardModel->deleteProduct($this->uri->segment(3));
+    }
+
+    function ordersView() {
+        if($this->session->userdata('id_loja')){
+            $data['storeName'] = $this->session->userdata('nome_loja');
+            $data['orders'] = $this->DashboardModel->selectOrders($this->session->userdata('id_loja'));
+
+            $this->load->view('dashboard-orders', $data);
+        } else {
+            redirect(base_url('login'));
+        }
+    }
+
+    function insertOrderDatabase() {
+        $data['id_loja'] = $this->session->userdata('id_loja');
+        $data['data_pedido'] = date("Y/m/d");
+
+        $this->DashboardModel->insertOrder($data);
+    }
+
+    public function orderView() {
+        if($this->session->userdata('id_loja')){
+            $data['storeName'] = $this->session->userdata('nome_loja');
+            $data['order'] = $this->DashboardModel->selectOrder($this->uri->segment(3));
+            $data['products'] = $this->DashboardModel->selectProducts($this->session->userdata('id_loja'));
+            
+            $this->load->view('dashboard-add-products-order', $data);
+        } else {
+            redirect(base_url('login'));
+        }
+    }
+
+    public function insertProductOrderDatabase() {
+        $data['id_pedido'] = $this->input->get('orderId');
+        $data['id_produto'] = $this->input->get('productId');
+        $data['qtd_produto'] = $this->input->get('productQty');
+
+        $this->DashboardModel->insertProductOrder($data);
     }
 }
