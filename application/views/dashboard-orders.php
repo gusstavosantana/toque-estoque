@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     foreach ($orders as $item) {
                                 ?>
                                     <tr>
-                                        <th scope="row">#<?php echo $item->id_pedido; ?></th>
+                                        <th scope="row">#202010<?php echo $item->id_pedido; ?></th>
                                         <td><?php echo (new DateTime($item->data_pedido))->format('d/m/Y'); ?></td>
                                         <td>R$ <?php echo str_replace('.', ',', $item->valor_pedido); ?></td>
                                         <td class="text-right">

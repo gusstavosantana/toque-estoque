@@ -144,7 +144,7 @@
 
 				json.forEach(function (element) {
 					data.push(element.valor_pedido);
-					label.push(`Pedido #${element.id_pedido}`);
+					label.push(`Pedido #202010${element.id_pedido}`);
 				});
 
 				const myChart = new Chart(chart, {
