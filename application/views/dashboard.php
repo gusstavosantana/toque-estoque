@@ -56,16 +56,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </ol>
                     </nav>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Visão geral:</h1>
+                        <h1 class="h2">Estoque:</h1>
                     </div>
-                    <div class="row">
+                    <div class="row mb-5">
                         <div class="col col-md-4">
                             <div class="card-status">
                                 <div class="icon-status bg-success">
                                     <span data-feather="check-circle"></span>
                                 </div>
                                 <div class="pl-3">
-                                    <p class="mb-1 text-muted">Produtos em estoque:</p>
+                                    <p class="mb-1 text-muted">Produtos disponíveis:</p>
                                     <h3><?php echo $inStock; ?></h3>
                                 </div>
                             </div>
@@ -93,12 +93,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Visão Geral:</h1>
+                    </div>
+                    <canvas class="my-4 w-100 mb-5" id="myChart" width="900" height="380" data-url="<?php echo base_url('dashboard/get-orders'); ?>"></canvas>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Receita:</h1>
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col col-md-4">
+                            <div class="card-status">
+                                <div class="icon-status bg-success">
+                                    <span data-feather="dollar-sign"></span>
+                                </div>
+                                <div class="pl-3">
+                                    <p class="mb-1 text-muted">Faturamento total:</p>
+                                    <h1>R$ <?php echo str_replace('.', ',', $renevues[0]['faturamento'] > 0 ? $renevues[0]['faturamento'] : 0); ?></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
         <script src="<?php echo base_url('src/js/dashboard.js') ?>"></script>
     </body>
 </html>

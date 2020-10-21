@@ -75,4 +75,14 @@ class DashboardModel extends CI_Model {
         $this->db->where('id_produto', $productId);
         $this->db->update('tb_produto');
     }
+
+    function getRenevues($storeId) {
+        $this->db->select('SUM(valor_pedido) AS faturamento');
+        $this->db->from('tb_pedido');
+        $this->db->where('id_loja', $storeId);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }

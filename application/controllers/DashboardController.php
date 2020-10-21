@@ -28,6 +28,8 @@ class DashboardController extends CI_Controller {
                 }
             }
 
+            $data['renevues'] = $this->DashboardModel->getRenevues($this->session->userdata('id_loja'));
+
             $this->load->view('dashboard', $data);
         } else {
             redirect(base_url('login'));
@@ -141,5 +143,11 @@ class DashboardController extends CI_Controller {
         $this->DashboardModel->updateOrderValue($data['id_pedido'], $newOrderValue);
         $this->DashboardModel->insertProductOrder($data);
         $this->DashboardModel->updateQtyProduct($data['id_produto'], $newQty);
+    }
+
+    public function getOrders() {
+        $orders = $this->DashboardModel->selectOrders($this->session->userdata('id_loja'));
+
+        echo json_encode($orders);
     }
 }

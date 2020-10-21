@@ -10,7 +10,7 @@ CREATE TABLE tb_loja (
     PRIMARY KEY (id_loja)
 );
 
-INSERT INTO tb_loja (nome_loja, usuario_loja, senha_loja) VALUES ('Lojinha da Ana', 'lojinha_ana', 'lojinha123');
+INSERT INTO tb_loja (nome_loja, usuario_loja, senha_loja) VALUES ('Lojinha da Ana', 'admin', 'admin123');
 
 CREATE TABLE tb_produto (
 	id_produto INT NOT NULL AUTO_INCREMENT,
@@ -40,6 +40,13 @@ CREATE TABLE tb_pedido (
     PRIMARY KEY (id_pedido),
     FOREIGN KEY (id_loja) REFERENCES tb_loja(id_loja)
 );
+
+INSERT INTO tb_pedido (data_pedido, valor_pedido, id_loja) VALUES 
+('2020-10-09', 129.90, 1),
+('2020-11-05', 49.90, 1),
+('2020-12-05', 29.90, 1),
+('2020-10-08', 149.90, 1),
+('2020-10-10', 129.90, 1);
 
 CREATE TABLE tb_produto_pedido (
     id_produto_pedido INT NOT NULL AUTO_INCREMENT,
