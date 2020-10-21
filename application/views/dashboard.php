@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h1 class="h2">Receita:</h1>
                     </div>
                     <div class="row mb-5">
-                        <div class="col col-md-4">
+                        <div class="col col-md-6">
                             <div class="card-status">
                                 <div class="icon-status bg-success">
                                     <span data-feather="dollar-sign"></span>
@@ -109,6 +109,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="pl-3">
                                     <p class="mb-1 text-muted">Faturamento total:</p>
                                     <h1>R$ <?php echo str_replace('.', ',', $renevues[0]['faturamento'] > 0 ? $renevues[0]['faturamento'] : 0); ?></h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <div class="card-status">
+                                <div class="icon-status bg-primary">
+                                    <span data-feather="trending-up"></span>
+                                </div>
+                                <div class="pl-3">
+                                    <p class="mb-1 text-muted">Ticket Médio:</p>
+                                    <h1>R$ <?php echo str_replace('.', ',', $ticket > 0 ? $ticket : 0); ?></h1>
                                 </div>
                             </div>
                         </div>
