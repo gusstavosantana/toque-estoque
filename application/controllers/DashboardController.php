@@ -29,7 +29,7 @@ class DashboardController extends CI_Controller {
             }
 
             $data['renevues'] = $this->DashboardModel->getRenevues($this->session->userdata('id_loja'));
-            $data['ticket'] = $data['renevues'][0]['faturamento'] / count($this->DashboardModel->selectOrders($this->session->userdata('id_loja')));
+            $data['ticket'] = $data['renevues'][0]['faturamento'] == 0 ? 0 : $data['renevues'][0]['faturamento'] / count($this->DashboardModel->selectOrders($this->session->userdata('id_loja')));
 
             $this->load->view('dashboard', $data);
         } else {
