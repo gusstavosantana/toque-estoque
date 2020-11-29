@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AuthModel extends CI_Model {
 
-    public function checkIfAccountExists($username, $pass) {
+    public function checkIfAccountExists($email, $pass) {
         $this->db->select('*');
         $this->db->from('tb_loja');
-        $this->db->where('usuario_loja', $username);
+        $this->db->where('email_loja', $email);
         $this->db->where('senha_loja', $pass);
 
         $query = $this->db->get();
@@ -14,10 +14,10 @@ class AuthModel extends CI_Model {
         return $query->num_rows();
     }
 
-    public function getAccountData($username) {
+    public function getAccountData($email) {
         $this->db->select('*');
         $this->db->from('tb_loja');
-        $this->db->where('usuario_loja', $username);
+        $this->db->where('email_loja', $email);
 
         $query = $this->db->get();
 

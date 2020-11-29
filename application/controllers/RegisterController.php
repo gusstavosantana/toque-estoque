@@ -14,10 +14,11 @@ class RegisterController extends CI_Controller {
 
 	public function addUser() {
 		$data['nome_loja'] = $this->input->post('nome_loja');
+		$data['cnpj_loja'] = $this->input->post('cnpj_loja');
 		$data['senha_loja'] = $this->input->post('senha_loja');
-		$data['usuario_loja'] = $this->input->post('usuario_loja');
+		$data['email_loja'] = $this->input->post('email_loja');
 
-		if (!$this->RegisterModel->checkIfUserExists($data['usuario_loja'])) {
+		if (!$this->RegisterModel->checkIfUserExists($data['email_loja'])) {
 			$this->RegisterModel->addUser($data);
 			
 			echo json_encode([

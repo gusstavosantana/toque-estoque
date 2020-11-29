@@ -5,12 +5,13 @@ CREATE DATABASE bd_toque_estoque;
 CREATE TABLE tb_loja ( 
 	id_loja INT NOT NULL AUTO_INCREMENT,
     nome_loja VARCHAR(50) NOT NULL,
-    usuario_loja VARCHAR(50) NOT NULL UNIQUE,
+    cnpj_loja VARCHAR(50) NOT NULL UNIQUE,
+    email_loja VARCHAR(100) NOT NULL UNIQUE,
     senha_loja VARCHAR(50) NOT NULL,
     PRIMARY KEY (id_loja)
 );
 
-INSERT INTO tb_loja (nome_loja, usuario_loja, senha_loja) VALUES ('Lojinha da Ana', 'admin', 'admin123');
+INSERT INTO tb_loja (nome_loja, cnpj_loja, email_loja, senha_loja) VALUES ('Lojinha da Ana', '44.602.259/0001-88', 'admin@admin.com', 'admin123');
 
 CREATE TABLE tb_produto (
 	id_produto INT NOT NULL AUTO_INCREMENT,
@@ -47,13 +48,3 @@ INSERT INTO tb_pedido (data_pedido, valor_pedido, id_loja) VALUES
 ('2020-12-05', 99.80, 1),
 ('2020-10-08', 149.90, 1),
 ('2020-10-10', 129.90, 1);
-
-CREATE TABLE tb_produto_pedido (
-    id_produto_pedido INT NOT NULL AUTO_INCREMENT,
-    id_produto INT NOT NULL,
-    qtd_produto INT NOT NULL,
-    id_pedido INT NOT NULL,
-    PRIMARY KEY (id_produto_pedido),
-    FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto),
-    FOREIGN KEY (id_pedido) REFERENCES tb_pedido(id_pedido)
-);

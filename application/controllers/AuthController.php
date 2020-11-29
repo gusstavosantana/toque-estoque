@@ -13,16 +13,16 @@ class AuthController extends CI_Controller {
 	}
 
 	public function auth() {
-		$data['usuario_loja'] = $this->input->post('usuario_loja');
+		$data['email_loja'] = $this->input->post('email_loja');
 		$data['senha_loja'] = $this->input->post('senha_loja');
 
-		if ($this->AuthModel->checkIfAccountExists($data['usuario_loja'], $data['senha_loja'])) {
-			$accountData = $this->AuthModel->getAccountData($data['usuario_loja']);
+		if ($this->AuthModel->checkIfAccountExists($data['email_loja'], $data['senha_loja'])) {
+			$accountData = $this->AuthModel->getAccountData($data['email_loja']);
 
 			foreach ($accountData as $item) {
 				$sessionData['id_loja'] = $item->id_loja;
 				$sessionData['nome_loja'] = $item->nome_loja;
-				$sessionData['usuario_loja'] = $item->usuario_loja;
+				$sessionData['email_loja'] = $item->email_loja;
 			}
 			
 			$this->session->set_userdata($sessionData);

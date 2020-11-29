@@ -7,10 +7,10 @@ class RegisterModel extends CI_Model {
         $this->db->insert('tb_loja', $data);
     }
 
-    public function checkIfUserExists($username) {
+    public function checkIfUserExists($email) {
         $this->db->select('*');
         $this->db->from('tb_loja');
-        $this->db->where('usuario_loja', $username);
+        $this->db->where('email_loja', $email);
 
         $query = $this->db->get();
 

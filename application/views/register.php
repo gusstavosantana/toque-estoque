@@ -21,9 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="text" class="form-control" name="nome_loja" id="inputStoreName" placeholder="Loja Exemplo" required/>
                 </div>
                 <div class="form-group col-md-6 text-left">
-                    <label for="inputStoreUser">Usuário</label>
-                    <input type="text" class="form-control" name="usuario_loja" id="inputStoreUser" placeholder="lojaexemplo20" pattern="\S+" required/>
+                    <label for="inputCnpjStore">CNPJ</label>
+                    <input type="text" class="form-control" name="cnpj_loja" id="inputCnpjStore" placeholder="00.000.000/0000-00" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" required/>
                 </div>
+            </div>
+            <div class="form-group text-left">
+                <label for="inputStoreEmail">Email da loja</label>
+                <input type="email" class="form-control" name="email_loja" id="inputStoreEmail" placeholder="lojaexemplo@email.com" required/>
             </div>
             <div class="form-group text-left">
                 <label for="inputStorePass">Senha</label>
