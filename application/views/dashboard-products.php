@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </button>
                                                 <div class="dropdown-menu edit-modal p-0" aria-labelledby="btnGroupDrop1">
                                                     <a class="dropdown-item" href="<?php echo base_url('dashboard/product/' . $item->id_produto); ?>">Editar</a>
-                                                    <a class="dropdown-item bg-danger text-white" id="remove-product" href="<?php echo base_url('dashboard/delete-product/' . $item->id_produto); ?>">Excluir</a>
+                                                    <a class="dropdown-item bg-danger text-white remove-product-order" href="<?php echo base_url('dashboard/delete-product/' . $item->id_produto); ?>">Excluir</a>
                                                 </div>
                                             </div>
                                         </td>

@@ -54,11 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('dashboard/orders'); ?>">Pedidos</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Pedido #<?php echo $order[0]['id_pedido']; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pedido #202010<?php echo $order[0]['id_pedido']; ?></li>
                         </ol>
                     </nav>
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
-                        <h1 class="h2">Pedido #<?php echo $order[0]['id_pedido']; ?></h1>
+                        <h1 class="h2">Pedido #202010<?php echo $order[0]['id_pedido']; ?></h1>
                     </div>
                     <?php
                         if (empty($products)) {

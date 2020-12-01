@@ -46,7 +46,7 @@
 			});
 		},
 		removeProduct() {
-			$("#remove-product").on("click", function (e) {
+			$(".remove-product-order").on("click", function (e) {
 				e.preventDefault();
 
 				const url = $(this).attr("href");

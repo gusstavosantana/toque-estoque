@@ -48,3 +48,13 @@ INSERT INTO tb_pedido (data_pedido, valor_pedido, id_loja) VALUES
 ('2020-12-05', 99.80, 1),
 ('2020-10-08', 149.90, 1),
 ('2020-10-10', 129.90, 1);
+
+CREATE TABLE tb_produto_pedido (
+    id_produto_pedido INT NOT NULL AUTO_INCREMENT,
+    id_produto INT NOT NULL,
+    qtd_produto INT NOT NULL,
+    id_pedido INT NOT NULL,
+    PRIMARY KEY (id_produto_pedido),
+    FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto),
+    FOREIGN KEY (id_pedido) REFERENCES tb_pedido(id_pedido)
+);
