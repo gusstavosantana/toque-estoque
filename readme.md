@@ -4,7 +4,7 @@ Sistema de gestão de microempresas destinado a matéria de Projeto Integrado da
 
 ## Instalação
 
-- Para abrir o projeto é necessário instalar o [XAMPP](https://pip.pypa.io/en/stable/) para rodar o servidor local.
+- Para abrir o projeto é necessário instalar o [XAMPP](https://www.apachefriends.org/pt_br/download.html) para rodar o servidor local.
 
 - Abrir o XAMPP control e ativar o Apache e o MySQL [(screenshot)](https://prnt.sc/vscm9s)
 
